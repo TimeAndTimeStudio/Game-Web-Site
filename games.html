@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Games — Time And Time Studio</title>
+  <meta name="description" content="Browse all games developed by Time And Time Studio. From whimsical adventures to strategic challenges — find your next favourite indie game." />
+  <meta name="keywords" content="Time And Time Studio games, Battle Mushroom, indie games, game catalog" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Games — Time And Time Studio" />
+  <meta property="og:description" content="Browse all games by Time And Time Studio." />
+  <meta property="og:image" content="assets/og-cover.png" />
+  <meta property="og:url" content="https://timeandtimestudio.com/games.html" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Time And Time Studio home">
+        Time <span>&</span> Time<br>Studio
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+        <li><a href="games.html" data-en="Games" data-th="เกม">Games</a></li>
+        <li>
+          <button class="lang-toggle" aria-label="Switch language">
+            <span class="lang-toggle__label">TH</span>
+          </button>
+        </li>
+      </ul>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+    <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">
+      <span class="lang-toggle__label">TH</span>
+    </button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════
+         PAGE BANNER
+    ══════════════════════════════════════════════ -->
+    <header class="page-banner" role="banner">
+      <div class="container">
+        <p class="page-banner__eyebrow" data-en="Our Catalogue" data-th="ผลงานของเรา">Our Catalogue</p>
+        <h1 class="page-banner__title" data-en="All Games" data-th="เกมทั้งหมด">All Games</h1>
+        <p class="page-banner__desc" data-en="Everything we've poured ourselves into. Each game is a small world — handcrafted with obsessive attention to feel and detail." data-th="ทุกเกมคือสิ่งที่เราทุ่มเทอย่างเต็มที่ แต่ละเกมคือโลกเล็กๆ ที่สร้างขึ้นด้วยความใส่ใจในทุกรายละเอียด">
+          Everything we've poured ourselves into. Each game is a small world — 
+          handcrafted with obsessive attention to feel and detail.
+        </p>
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════
+         GAMES GRID
+         ── HOW TO ADD A NEW GAME ────────────────
+         Option A (JS): Add a new object to the
+           GAMES array in main.js and create the
+           matching HTML pages.
+         Option B (HTML): Copy the <article> block
+           below and update the fields manually.
+         Both approaches work independently.
+    ══════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="games-heading">
+      <div class="container">
+        <h2 class="section-eyebrow" id="games-heading" style="margin-bottom:40px;">
+          <!-- Visually hidden heading for screen readers; eyebrow is visible -->
+          <span class="sr-only">Game library</span>
+        </h2>
+
+        <!--
+          JS auto-populates this grid from main.js GAMES array.
+          If you prefer pure HTML, remove the id and add <article> cards directly.
+        -->
+        <div class="games-grid" id="games-container" aria-label="Game library">
+
+          <!-- ── STATIC FALLBACK / TEMPLATE ─────────
+               If JS is disabled, or you want to manage
+               cards by hand, copy this block per game:
+          ──────────────────────────────────────────── -->
+          <noscript>
+            <article class="game-card">
+              <div class="game-card__banner placeholder" aria-label="Battle Mushroom banner">
+                <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:0.35"><rect x="10" y="28" width="28" height="12" rx="3" fill="currentColor"/><path d="M12 28C12 19.163 17.373 12 24 12C30.627 12 36 19.163 36 28H12Z" fill="currentColor"/></svg>
+                <span>Battle Mushroom — Banner</span>
+              </div>
+              <div class="game-card__body">
+                <p class="game-card__studio">Time And Time Studio</p>
+                <h2 class="game-card__title">Battle Mushroom</h2>
+                <p class="game-card__desc">
+                  A whimsical action-adventure where tiny mushroom warriors battle for the fate
+                  of the forest. Master elemental spores, unlock ancient powers, and restore balance.
+                </p>
+                <div class="game-card__footer">
+                  <a href="game-battle-mushroom.html" class="btn btn--primary">View Details</a>
+                </div>
+              </div>
+            </article>
+          </noscript>
+
+        </div>
+
+        <!-- Empty state (shown by JS if GAMES array is empty) -->
+        <p id="games-empty" style="display:none;color:var(--ink-muted);font-size:0.95rem;text-align:center;padding:48px 0;">
+          More games coming soon. Stay tuned!
+        </p>
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__brand-name">Time &amp; Time Studio</p>
+          <p class="footer__tagline" data-en="Indie game studio making<br>handcrafted worlds with heart." data-th="สตูดิโอเกมอินดี้<br>ที่สร้างโลกด้วยหัวใจ">Indie game studio making<br>handcrafted worlds with heart.</p>
+        </div>
+        <div>
+          <p class="footer__heading" data-en="Navigate" data-th="เมนู">Navigate</p>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+            <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+            <a href="game-battle-mushroom.html">Battle Mushroom</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="&copy; 2026 <span>Time And Time Studio</span>. All rights reserved." data-th="&copy; 2026 <span>Time And Time Studio</span>. สงวนลิขสิทธิ์">&copy; 2026 <span>Time And Time Studio</span>. All rights reserved.</p>
+        <p class="footer__copy" data-en="Made with care." data-th="สร้างด้วยความใส่ใจ">Made with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Show empty state if no games
+    document.addEventListener('DOMContentLoaded', function () {
+      var container = document.getElementById('games-container');
+      var empty = document.getElementById('games-empty');
+      if (container && empty && container.children.length === 0) {
+        empty.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

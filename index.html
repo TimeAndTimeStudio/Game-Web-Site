@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time And Time Studio — Indie Game Developer</title>
+  <meta name="description" content="Time And Time Studio is an indie game development studio crafting handcrafted games. / สตูดิโอเกมอินดี้ผู้สร้างสรรค์เกมด้วยความใส่ใจ" />
+  <meta name="keywords" content="indie game studio, Time And Time Studio, Battle Mushroom, indie games, game developer, สตูดิโอเกม" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Time And Time Studio — Indie Game Developer" />
+  <meta property="og:description" content="Crafting handcrafted, soulful indie games with heart and care." />
+  <meta property="og:image" content="assets/og-cover.png" />
+  <meta property="og:url" content="https://timeandtimestudio.com/" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Time And Time Studio home">
+        Time <span>&</span> Time<br>Studio
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+        <li><a href="games.html" data-en="Games" data-th="เกม">Games</a></li>
+        <li>
+          <button class="lang-toggle" aria-label="Switch language">
+            <span class="lang-toggle__label">TH</span>
+          </button>
+        </li>
+      </ul>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+    <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">
+      <span class="lang-toggle__label">TH</span>
+    </button>
+  </div>
+
+  <main id="main-content">
+
+    <section class="hero" aria-label="Studio hero">
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow" data-en="Indie Game Studio" data-th="สตูดิโอเกมอินดี้">Indie Game Studio</p>
+          <h1 class="hero__title">
+            <span data-en="We make<br>games that<br><em>feel alive.</em>" data-th="เราสร้างเกม<br>ที่ทำให้คุณ<br><em>รู้สึกมีชีวิต</em>">We make<br>games that<br><em>feel alive.</em></span>
+          </h1>
+          <p class="hero__desc" data-en="Time And Time Studio is a small, independent game studio dedicated to building handcrafted worlds with warmth, wonder, and a dash of the unexpected." data-th="Time And Time Studio คือสตูดิโอเกมอินดี้ขนาดเล็ก ที่ทุ่มเทสร้างโลกเกมด้วยความอบอุ่น จินตนาการ และความน่าประหลาดใจ">
+            Time And Time Studio is a small, independent game studio dedicated to building handcrafted worlds with warmth, wonder, and a dash of the unexpected.
+          </p>
+          <div class="hero__actions">
+            <a href="games.html" class="btn btn--primary" data-en="View Our Games" data-th="ดูเกมของเรา">View Our Games</a>
+            <a href="#about" class="btn btn--outline" data-en="About Us" data-th="เกี่ยวกับเรา">About Us</a>
+          </div>
+        </div>
+
+        <!-- ── HERO IMAGE — ใส่รูปได้เลย ──────────────
+             แนะนำ: 800×600px, PNG หรือ WebP
+             วางไฟล์ที่: assets/hero-banner.png
+        ─────────────────────────────────────────── -->
+        <img src="assets/hero-banner.png"
+             alt="Time And Time Studio"
+             class="hero__visual"
+             style="object-fit:cover;border-radius:var(--radius-lg);" />
+      </div>
+    </section>
+
+    <section class="about-strip" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-strip__inner">
+          <p class="about-strip__label" data-en="Our Studio" data-th="สตูดิโอของเรา">Our Studio</p>
+          <div>
+            <h2 class="about-strip__heading" id="about-heading" data-en="Small team. Big worlds.<br>Built one frame at a time." data-th="ทีมเล็ก โลกยิ่งใหญ่<br>สร้างทีละเฟรมด้วยใจ">
+              Small team. Big worlds.<br>Built one frame at a time.
+            </h2>
+            <p class="about-strip__text" data-en="We believe great games are born from obsession over details — the way light falls on a leaf, the sound a mushroom makes, the tiny celebration when you discover a secret. At Time And Time Studio, every pixel earns its place." data-th="เราเชื่อว่าเกมที่ยิ่งใหญ่เกิดจากความหลงใหลในรายละเอียด ไม่ว่าจะเป็นแสงที่ตกกระทบบนใบไม้ เสียงของเห็ด หรือความดีใจเล็กๆ เมื่อค้นพบความลับ ที่ Time And Time Studio ทุกพิกเซลมีความหมาย">
+              We believe great games are born from obsession over details — the way light falls on a leaf, the sound a mushroom makes, the tiny celebration when you discover a secret. At Time And Time Studio, every pixel earns its place.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="featured__header">
+          <div>
+            <p class="section-eyebrow" data-en="What We're Making" data-th="สิ่งที่เรากำลังสร้าง">What We're Making</p>
+            <h2 class="section-title" id="featured-heading" data-en="Featured Games" data-th="เกมแนะนำ">Featured Games</h2>
+          </div>
+          <a href="games.html" class="btn btn--outline" data-en="All Games →" data-th="เกมทั้งหมด →">All Games →</a>
+        </div>
+        <div class="games-grid reveal" id="featured-container" aria-label="Featured games"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__brand-name">Time &amp; Time Studio</p>
+          <p class="footer__tagline" data-en="Indie game studio making<br>handcrafted worlds with heart." data-th="สตูดิโอเกมอินดี้<br>ที่สร้างโลกด้วยหัวใจ">
+            Indie game studio making<br>handcrafted worlds with heart.
+          </p>
+        </div>
+        <div>
+          <p class="footer__heading" data-en="Navigate" data-th="เมนู">Navigate</p>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+            <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+            <a href="game-battle-mushroom.html">Battle Mushroom</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="&copy; 2026 <span>Time And Time Studio</span>. All rights reserved." data-th="&copy; 2026 <span>Time And Time Studio</span>. สงวนลิขสิทธิ์">&copy; 2026 <span>Time And Time Studio</span>. All rights reserved.</p>
+        <p class="footer__copy" data-en="Made with care." data-th="สร้างด้วยความใส่ใจ">Made with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

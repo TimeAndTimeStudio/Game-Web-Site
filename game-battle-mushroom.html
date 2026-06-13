@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Battle Mushroom — Time And Time Studio</title>
+  <meta name="description" content="Battle Mushroom is an indie game by Time And Time Studio." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="game" />
+  <meta property="og:title" content="Battle Mushroom — Time And Time Studio" />
+  <meta property="og:image" content="assets/battle-mushroom-banner.png" />
+  <meta property="og:url" content="https://timeandtimestudio.com/game-battle-mushroom.html" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--orange); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .screenshots-section {
+      padding: 64px 0;
+      border-top: 1.5px solid var(--border);
+    }
+
+    .dl-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .dl-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition),
+                  transform var(--transition), border-color var(--transition);
+      text-align: center;
+      line-height: 1.2;
+    }
+    .dl-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .dl-btn--android { background: var(--orange); color: #fff; border-color: var(--orange); }
+    .dl-btn--android:hover { background: var(--orange-deep); border-color: var(--orange-deep); transform: translateY(-2px); }
+    .dl-btn--windows { background: transparent; color: var(--orange); border-color: var(--orange); }
+    .dl-btn--windows:hover { background: var(--orange); color: #fff; transform: translateY(-2px); }
+    .dl-btn__text { display: flex; flex-direction: column; align-items: flex-start; }
+    .dl-btn__sub { font-size: 0.65rem; font-weight: 500; opacity: 0.8; letter-spacing: 0.04em; }
+
+    .dl-btn--link {
+      background: var(--cream-dark);
+      color: var(--ink-soft);
+      border-color: var(--border);
+    }
+    .dl-btn--link:hover {
+      background: var(--ink-soft);
+      color: #fff;
+      border-color: var(--ink-soft);
+      transform: translateY(-2px);
+    }
+    .external-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .platform-badges {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 4px;
+    }
+    .platform-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; background: var(--cream-dark);
+      color: var(--ink-soft); padding: 4px 10px;
+      border-radius: 100px; border: 1px solid var(--border);
+    }
+    .platform-badge svg { width: 13px; height: 13px; }
+
+    .game-content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: 64px 0;
+    }
+    @media (max-width: 900px) {
+      .game-content-grid { grid-template-columns: 1fr; gap: 40px; padding: 48px 0; }
+      .game-sidebar { position: static !important; }
+    }
+    @media (max-width: 600px) {
+      .game-content-grid { padding: 36px 0; gap: 32px; }
+    }
+
+    .screenshot-item {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .screenshot-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+    .lightbox-overlay.is-open { display: flex; }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+    }
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255,255,255,0.25);
+    }
+    .lightbox-close { top: 20px; right: 20px; }
+    .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-close svg, .lightbox-prev svg, .lightbox-next svg {
+      width: 22px; height: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Time And Time Studio home">
+        Time <span>&</span> Time<br>Studio
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+        <li><a href="games.html" data-en="Games" data-th="เกม">Games</a></li>
+        <li>
+          <button class="lang-toggle" aria-label="Switch language">
+            <span class="lang-toggle__label">TH</span>
+          </button>
+        </li>
+      </ul>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+    <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+    <button class="lang-toggle" aria-label="Switch language">
+      <span class="lang-toggle__label">TH</span>
+    </button>
+  </div>
+
+  <main id="main-content">
+
+    <!-- GAME HERO -->
+    <header class="game-hero" role="banner" aria-label="Battle Mushroom game hero">
+      <!-- ── BANNER IMAGE — วางไฟล์ที่: assets/battle-mushroom-banner.png (แนะนำ 1920×720px) ── -->
+      <img src="assets/battle-mushroom-banner.png"
+           alt="Battle Mushroom"
+           class="game-hero__banner"
+           style="object-fit:cover;" />
+
+      <div class="game-hero__overlay" aria-hidden="false">
+        <div class="game-hero__content">
+          <!-- ── LOGO IMAGE — วางไฟล์ที่: assets/battle-mushroom-logo.png (แนะนำ 120×120px) ── -->
+          <img src="assets/battle-mushroom-logo.png"
+               alt="Battle Mushroom logo"
+               class="game-hero__logo-box"
+               style="object-fit:cover;" />
+          <h1 class="game-hero__title">Battle Mushroom</h1>
+          <p class="game-hero__studio" data-en="By Time And Time Studio" data-th="โดย Time And Time Studio">By Time And Time Studio</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- GAME BODY -->
+    <div style="background:var(--cream);">
+      <div class="container">
+        <div class="game-content-grid">
+
+          <!-- MAIN CONTENT -->
+          <div>
+            <a href="games.html" class="back-link">
+              <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-en="All Games" data-th="เกมทั้งหมด">All Games</span>
+            </a>
+
+            <!-- STORY -->
+            <section aria-labelledby="game-desc-heading">
+              <h2 class="game-desc-heading" id="game-desc-heading" data-en="About the Game" data-th="เกี่ยวกับเกม">About the Game</h2>
+              <p class="game-desc-text"
+                 data-en="One day, a group of mushrooms was stepped on. Feeling stressed and vengeful, they began invading other plants and species. Because of this, other plants and living creatures had to come together to defend against the mushroom group's invasion."
+                 data-th="ในวันหนึ่ง มีเห็ดกลุ่มหนึ่งโดนเหยียบ แล้วทำให้เห็ดกลุ่มนั้นเครียดแค้นจึงไปรุกรานพืชพันธุ์อื่น และสิ่งมีชีวิตสายพันธุ์อื่นๆ ด้วยเหตุนี้จึงทำให้พืชพันธุ์ และสิ่งมีชีวิตสายพันธุ์อื่นๆ ต้องมารวมตัวกันเพื่อป้องกันการรุกรานของเห็ดกลุ่มนั้น">
+                One day, a group of mushrooms was stepped on. Feeling stressed and vengeful, they began invading other plants and species. Because of this, other plants and living creatures had to come together to defend against the mushroom group's invasion.
+              </p>
+            </section>
+
+            <!-- FEATURES -->
+            <section class="reveal" aria-labelledby="features-heading" style="margin-top:40px;">
+              <h2 class="game-desc-heading" id="features-heading" data-en="Game Features" data-th="ฟีเจอร์เกม">Game Features</h2>
+              <ul class="features-list" role="list">
+                <li data-en="Gacha system to collect characters" data-th="ระบบกาชา สุ่มตัวละคร">Gacha system to collect characters</li>
+                <li data-en="Challenging boss battles with unique mechanics" data-th="บอสที่ท้าทาย พร้อมรูปแบบการต่อสู้เฉพาะตัว">Challenging boss battles with unique mechanics</li>
+                <li data-en="Multiple stages to explore and conquer" data-th="หลากหลายด่านให้สำรวจและพิชิต">Multiple stages to explore and conquer</li>
+                <li data-en="In-depth wiki with guides and game information" data-th="วิกิข้อมูลเกมและคำแนะนำแบบละเอียด">In-depth wiki with guides and game information</li>
+              </ul>
+            </section>
+          </div>
+
+          <!-- SIDEBAR -->
+          <aside class="game-sidebar" aria-label="Game information and download">
+            <div class="game-sidebar__card">
+
+              <!-- ── SIDEBAR LOGO — วางไฟล์ที่: assets/battle-mushroom-logo.png (แนะนำ 80×80px) ── -->
+              <img src="assets/battle-mushroom-logo.png"
+                   alt="Battle Mushroom logo"
+                   class="game-sidebar__logo"
+                   style="object-fit:cover;" />
+
+              <p class="game-sidebar__title">Battle Mushroom</p>
+              <p class="game-sidebar__by" data-en="by Time And Time Studio" data-th="โดย Time And Time Studio">by Time And Time Studio</p>
+
+              <div class="platform-badges" style="margin-top:10px;">
+                <span class="platform-badge">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.523 15.341a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-9.546 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM1.5 9.75h21v7.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V9.75Zm5.25-5.693L5.03 2.343a.75.75 0 1 0-1.06 1.06l1.924 1.926A8.96 8.96 0 0 0 3 9.75h18a8.96 8.96 0 0 0-2.894-4.421l1.924-1.926a.75.75 0 1 0-1.06-1.06l-1.72 1.714A8.97 8.97 0 0 0 12 3a8.97 8.97 0 0 0-5.25 1.057Z"/></svg>
+                  Android
+                </span>
+                <span class="platform-badge">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 5.556 10.333 4.5v7.056H3V5.556Zm0 12.888L10.333 19.5v-7.056H3v5.944Zm8.167 1.223L21 21V12.444h-9.833v7.223Zm0-14.334v7.223H21V3L11.167 5.333Z"/></svg>
+                  Windows
+                </span>
+              </div>
+
+              <hr class="game-sidebar__divider" />
+
+              <div role="list">
+                <div class="game-meta-row" role="listitem">
+                  <span class="game-meta-row__label" data-en="Genre" data-th="ประเภท">Genre</span>
+                  <span class="game-meta-row__value" data-en="Strategy" data-th="กลยุทธ์">Strategy</span>
+                </div>
+                <div class="game-meta-row" role="listitem">
+                  <span class="game-meta-row__label" data-en="Status" data-th="สถานะ">Status</span>
+                  <span class="game-meta-row__value text-orange" data-en="In Development" data-th="กำลังพัฒนา">In Development</span>
+                </div>
+                <div class="game-meta-row" role="listitem">
+                  <span class="game-meta-row__label" data-en="Release" data-th="วันวางจำหน่าย">Release</span>
+                  <span class="game-meta-row__value" data-en="TBA" data-th="ยังไม่กำหนด">TBA</span>
+                </div>
+              </div>
+
+              <hr class="game-sidebar__divider" />
+
+              <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);text-align:center;margin-bottom:12px;"
+                 data-en="Download" data-th="ดาวน์โหลด">Download</p>
+              <div class="dl-buttons" id="download">
+
+                <a href="#" class="dl-btn dl-btn--android" aria-label="Download Battle Mushroom for Android">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M17.523 15.341a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm-9.546 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM1.5 9.75h21v7.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V9.75Zm5.25-5.693L5.03 2.343a.75.75 0 1 0-1.06 1.06l1.924 1.926A8.96 8.96 0 0 0 3 9.75h18a8.96 8.96 0 0 0-2.894-4.421l1.924-1.926a.75.75 0 1 0-1.06-1.06l-1.72 1.714A8.97 8.97 0 0 0 12 3a8.97 8.97 0 0 0-5.25 1.057Z"/>
+                  </svg>
+                  <span class="dl-btn__text">
+                    <span class="dl-btn__sub" data-en="Get it on" data-th="ดาวน์โหลดบน">Get it on</span>
+                    Android
+                  </span>
+                </a>
+
+                <a href="#" class="dl-btn dl-btn--windows" aria-label="Download Battle Mushroom for Windows">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M3 5.556 10.333 4.5v7.056H3V5.556Zm0 12.888L10.333 19.5v-7.056H3v5.944Zm8.167 1.223L21 21V12.444h-9.833v7.223Zm0-14.334v7.223H21V3L11.167 5.333Z"/>
+                  </svg>
+                  <span class="dl-btn__text">
+                    <span class="dl-btn__sub" data-en="Download for" data-th="ดาวน์โหลดสำหรับ">Download for</span>
+                    Windows
+                  </span>
+                </a>
+
+              </div>
+              <p style="font-size:0.7rem;color:var(--ink-muted);margin-top:10px;text-align:center;"
+                 data-en="Demo for Android and Windows is not available yet."
+                 data-th="Demo สำหรับ Android และ Windows ยังไม่มา">
+                Demo for Android and Windows is not available yet.
+              </p>
+
+              <div class="external-links">
+                <a href="#" target="_blank" rel="noopener" class="dl-btn dl-btn--link" aria-label="View Battle Mushroom on TapTap">
+                  <span class="dl-btn__text">TapTap</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="dl-btn dl-btn--link" aria-label="View Battle Mushroom on itch.io">
+                  <span class="dl-btn__text">itch.io</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener" class="dl-btn dl-btn--link" aria-label="View Battle Mushroom on GitHub">
+                  <span class="dl-btn__text">GitHub</span>
+                </a>
+              </div>
+
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREENSHOTS -->
+    <section class="screenshots-section" aria-labelledby="screenshots-heading">
+      <div class="container">
+        <p class="section-eyebrow" data-en="In-Game" data-th="ในเกม">In-Game</p>
+        <h2 class="section-title" id="screenshots-heading" style="margin-bottom:40px;"
+            data-en="Screenshots" data-th="ภาพหน้าจอ">Screenshots</h2>
+        <div class="screenshots-grid reveal">
+
+          <!-- ── SCREENSHOTS — วางไฟล์ที่: assets/screenshots/ (แนะนำ 1280×800px) ── -->
+          <img src="assets/screenshots/ss1.png" alt="Battle Mushroom screenshot 1" class="screenshot-item" style="object-fit:cover;" onclick="openLightbox(0)" />
+          <img src="assets/screenshots/ss2.png" alt="Battle Mushroom screenshot 2" class="screenshot-item" style="object-fit:cover;" onclick="openLightbox(1)" />
+          <img src="assets/screenshots/ss3.png" alt="Battle Mushroom screenshot 3" class="screenshot-item" style="object-fit:cover;" onclick="openLightbox(2)" />
+          <img src="assets/screenshots/ss4.png" alt="Battle Mushroom screenshot 4" class="screenshot-item" style="object-fit:cover;" onclick="openLightbox(3)" />
+          <img src="assets/screenshots/ss5.png" alt="Battle Mushroom screenshot 5" class="screenshot-item" style="object-fit:cover;" onclick="openLightbox(4)" />
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox" onclick="if(event.target===this) closeLightbox()">
+      <button class="lightbox-close" aria-label="Close" onclick="closeLightbox()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <button class="lightbox-prev" aria-label="Previous" onclick="changeLightbox(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Screenshot preview" />
+      <button class="lightbox-next" aria-label="Next" onclick="changeLightbox(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <p class="footer__brand-name">Time &amp; Time Studio</p>
+          <p class="footer__tagline" data-en="Indie game studio making<br>handcrafted worlds with heart." data-th="สตูดิโอเกมอินดี้<br>ที่สร้างโลกด้วยหัวใจ">Indie game studio making<br>handcrafted worlds with heart.</p>
+        </div>
+        <div>
+          <p class="footer__heading" data-en="Navigate" data-th="เมนู">Navigate</p>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a>
+            <a href="games.html" data-en="Games" data-th="เกม">Games</a>
+            <a href="game-battle-mushroom.html">Battle Mushroom</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy" data-en="&copy; 2026 <span>Time And Time Studio</span>. All rights reserved." data-th="&copy; 2026 <span>Time And Time Studio</span>. สงวนลิขสิทธิ์">&copy; 2026 <span>Time And Time Studio</span>. All rights reserved.</p>
+        <p class="footer__copy" data-en="Made with care." data-th="สร้างด้วยความใส่ใจ">Made with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const screenshotImages = [
+      "assets/screenshots/ss1.png",
+      "assets/screenshots/ss2.png",
+      "assets/screenshots/ss3.png",
+      "assets/screenshots/ss4.png",
+      "assets/screenshots/ss5.png"
+    ];
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      document.getElementById('lightbox-img').src = screenshotImages[index];
+      document.getElementById('lightbox').classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    function changeLightbox(direction) {
+      currentLightboxIndex = (currentLightboxIndex + direction + screenshotImages.length) % screenshotImages.length;
+      document.getElementById('lightbox-img').src = screenshotImages[currentLightboxIndex];
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
