@@ -9,8 +9,8 @@ sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-releas
 sudo dnf install brave-origin
 
 cd Downloads
-wget https://github.com/TimeAndTimeStudio/Game-Web-Site/blob/main/019b913a-a484-7237-b907-2444e37e22e2.png
-wget https://github.com/TimeAndTimeStudio/Game-Web-Site/blob/main/horizontal%20pic.jpg
+wget https://game.timeandtime.online/019b913a-a484-7237-b907-2444e37e22e2.png
+wget https://game.timeandtime.online/horizontal%20pic.jpg
 
 sudo systemctl enable gdm --now
 sudo systemctl set-default graphical.target
