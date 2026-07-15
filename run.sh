@@ -1,6 +1,7 @@
 sudo dnf install gdm gnome-terminal 
 sudo dnf remove gnome-tour
 sudo dnf install nautilus
+sudo dnf remove malcontent-control
 
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
