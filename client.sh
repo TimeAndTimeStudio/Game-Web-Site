@@ -14,10 +14,6 @@ sudo dnf install plymouth-system-theme
 sudo plymouth-set-default-theme -R bgrt
 sudo systemctl set-default graphical.target
 
-sudo dnf install glibc.i686 mesa-libGL.i686 libdrm.i686 libnsl.i686
-wget https://repo.steampowered.com/steam/archive/stable/steam_latest-stable.tar.gz
-wget https://github.com/TimeAndTimeStudio/Game-Web-Site/releases/download/icon/icons.tar.xz
-
 wget https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/Moonlight-6.1.0-x86_64.AppImage
 
 sudo systemctl enable gdm --now
