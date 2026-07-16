@@ -29,7 +29,7 @@ sudo mkdir /usr/lib/steam
 sudo mv bootstraplinux_ubuntu12_32.tar.xz /usr/lib/steam
 cd ../
 tar -xvf icons.tar.xz
-sudo mv icons/* /usr/share/icons/hicolor/*
+sudo cp -r icons/* /usr/share/icons/hicolor/
 
 wget https://github.com/LizardByte/Sunshine/releases/download/v2026.516.143833/Sunshine-2026.516.143833-1.fc44.x86_64.rpm
 sudo dnf install ./Sunshine-2026.516.143833-1.fc44.x86_64.rpm
