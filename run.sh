@@ -34,4 +34,7 @@ sudo mv icons/* /usr/share/icons/hicolor
 wget https://github.com/LizardByte/Sunshine/releases/download/v2026.516.143833/Sunshine-2026.516.143833-1.fc44.x86_64.rpm
 sudo dnf install ./Sunshine-2026.516.143833-1.fc44.x86_64.rpm
 
+wget https://launcher-files.modrinth.com/versions/0.15.11/linux/Modrinth%20App-0.15.11-1.x86_64.rpm
+sudo dnf install ./"Modrinth App-0.15.11-1.x86_64.rpm"
+
 sudo systemctl enable gdm --now
