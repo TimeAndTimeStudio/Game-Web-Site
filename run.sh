@@ -14,9 +14,8 @@ cd Downloads
 wget https://game.timeandtime.online/019b913a-a484-7237-b907-2444e37e22e2.png
 wget https://game.timeandtime.online/horizontal%20pic.jpg
 
-sudo firewall-cmd --remove-service=ssh --remove-service=mdns --remove-service=dhcpv6-client --permanent
+sudo firewall-cmd --remove-service=mdns --remove-service=dhcpv6-client --permanent
 
-sudo hostnamectl set-hostname sirasit-pc
 sudo dnf install plymouth-system-theme
 sudo plymouth-set-default-theme -R bgrt
 sudo systemctl set-default graphical.target
