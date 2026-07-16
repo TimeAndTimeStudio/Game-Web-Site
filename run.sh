@@ -3,6 +3,7 @@ sudo dnf remove gnome-tour
 sudo dnf install nautilus
 sudo dnf remove malcontent-control
 sudo dnf install google-noto-sans-thai-fonts google-noto-sans-cjk-fonts
+sudo dnf remove gnome-remote-desktop
 
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
