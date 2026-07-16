@@ -26,7 +26,7 @@ sudo mv steam /usr/bin/
 mv steam.desktop ~/.local/share/applications/steam.desktop
 chmod +x ~/.local/share/applications/steam.desktop
 sudo mkdir /usr/lib/steam
-sudo mv bootstraplinux_ubuntu12_32.tar.xz /usr/lib/steam
+sudo mv bootstraplinux_ubuntu12_32.tar.xz /usr/lib/steam/
 cd ../
 tar -xvf icons.tar.xz
 sudo cp -r icons/* /usr/share/icons/hicolor/
