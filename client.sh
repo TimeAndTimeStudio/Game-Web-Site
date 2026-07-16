@@ -1,4 +1,4 @@
-sudo dnf install gdm gnome-terminal nautilus google-noto-sans-thai-fonts google-noto-sans-cjk-fonts tar wireguard-tools
+sudo dnf install gdm gnome-terminal nautilus google-noto-sans-thai-fonts google-noto-sans-cjk-fonts tar wireguard-tools fuse fuse-libs
 sudo dnf remove gnome-tour malcontent-control gnome-remote-desktop
 
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
