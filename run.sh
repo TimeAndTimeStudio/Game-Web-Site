@@ -3,7 +3,7 @@ sudo dnf remove gnome-tour
 sudo dnf install nautilus
 sudo dnf remove malcontent-control
 sudo dnf install google-noto-sans-thai-fonts google-noto-sans-cjk-fonts
-sudo dnf remove gnome-remote-desktop
+sudo dnf remove gnome-remote-desktop openssh-server
 
 sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 
@@ -14,7 +14,7 @@ cd Downloads
 wget https://game.timeandtime.online/019b913a-a484-7237-b907-2444e37e22e2.png
 wget https://game.timeandtime.online/horizontal%20pic.jpg
 
-sudo firewall-cmd --remove-service=mdns --remove-service=dhcpv6-client --permanent
+sudo firewall-cmd --remove-service=mdns --remove-service=ssh --remove-service=dhcpv6-client --permanent
 
 sudo dnf install plymouth-system-theme
 sudo plymouth-set-default-theme -R bgrt
