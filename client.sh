@@ -23,13 +23,13 @@ cd steam-launcher
 sudo rm steam
 sudo mv bin_steam.sh steam
 sudo mv steam /usr/bin/
-mv steam.desktop ~/.local/share/applications
+mv steam.desktop ~/.local/share/applications/steam.desktop
 chmod +x ~/.local/share/applications/steam.desktop
 sudo mkdir /usr/lib/steam
 sudo mv bootstraplinux_ubuntu12_32.tar.xz /usr/lib/steam
 cd ../
 tar -xvf icons.tar.xz
-sudo mv icons/* /usr/share/icons/hicolor
+sudo mv icons/* /usr/share/icons/hicolor/*
 
 wget https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/Moonlight-6.1.0-x86_64.AppImage
 
