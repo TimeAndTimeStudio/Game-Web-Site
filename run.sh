@@ -17,6 +17,8 @@ wget https://game.timeandtime.online/horizontal%20pic.jpg
 sudo firewall-cmd --remove-service=ssh --remove-service=mdns --remove-service=dhcpv6-client --permanent
 
 sudo hostnamectl set-hostname sirasit-pc
+sudo dnf install plymouth-system-theme
+sudo plymouth-set-default-theme -R bgrt
 sudo systemctl set-default graphical.target
 
 sudo systemctl enable gdm --now
