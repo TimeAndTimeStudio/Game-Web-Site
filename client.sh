@@ -23,6 +23,7 @@ cd steam-launcher
 sudo rm steam
 sudo mv bin_steam.sh steam
 sudo mv steam /usr/bin/
+mkdir ~/.local/share/applications
 mv steam.desktop ~/.local/share/applications/steam.desktop
 chmod +x ~/.local/share/applications/steam.desktop
 sudo mkdir /usr/lib/steam
