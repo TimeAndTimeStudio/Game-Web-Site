@@ -1,0 +1,7 @@
+sudo /etc/wireguard/server.conf
+sudo systemctl enable wg-quick@server
+sudo systemctl start wg-quick@server
+
+sudo /etc/wireguard/client.conf
+sudo systemctl enable wg-quick@client
+sudo systemctl start wg-quick@client
